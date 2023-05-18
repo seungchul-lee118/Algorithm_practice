@@ -23,7 +23,7 @@ public class BuildTrack {
 
         for (int i = 0; i < n; i++) {
             for (int j = 0; j < n; j++) {
-                board[i][j] = board[i][j] == 1 ? 1 : 30000;
+                board[i][j] = board[i][j] == 1 ? 1 : 100000;
             }
         }
 
@@ -39,7 +39,7 @@ public class BuildTrack {
     }
 
     public static void dfs(int[][] board, int dir, int pay, int y, int x, Map<Integer, int[]> direction) {
-        if (!inBoard(board.length, y, x) || board[y][x] == 1 || board[y][x] + 500 < pay) {
+        if (!inBoard(board.length, y, x) || board[y][x] == 1 || board[y][x] + 600 < pay) {
             return ;
         }
         board[y][x] = Math.min(board[y][x], pay);
