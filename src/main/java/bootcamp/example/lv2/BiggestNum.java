@@ -1,4 +1,4 @@
-package bootcamp.example;
+package bootcamp.example.lv2;
 
 import java.util.*;
 

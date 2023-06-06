@@ -1,4 +1,4 @@
-package bootcamp.example;
+package bootcamp.example.coplit;
 
 public class LPS {
     public static void main(String[] args) {

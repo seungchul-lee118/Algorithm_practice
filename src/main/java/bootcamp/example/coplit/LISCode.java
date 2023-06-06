@@ -1,4 +1,4 @@
-package bootcamp.example;
+package bootcamp.example.coplit;
 
 import java.util.*;
 

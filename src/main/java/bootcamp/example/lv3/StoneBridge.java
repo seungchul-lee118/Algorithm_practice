@@ -1,4 +1,4 @@
-package bootcamp.example;
+package bootcamp.example.lv3;
 
 import java.util.ArrayDeque;
 import java.util.Deque;
