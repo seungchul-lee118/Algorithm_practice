@@ -25,7 +25,7 @@ public class BackToBootcamp {
         boolean[] visited = new boolean[n + 1];
         ArrayList<Integer>[] arrays = new ArrayList[n + 1];
         int[] dist = new int[n + 1];
-        Queue<Node> queue = new LinkedList<>();
+        Queue<Integer> queue = new LinkedList<>();
 
         Arrays.fill(dist, -1);
         dist[destination] = 0;
@@ -38,16 +38,16 @@ public class BackToBootcamp {
             arrays[roads[i][1]].add(roads[i][0]);
         }
 
-        queue.add(new Node(destination, 0));
+        queue.add(destination);
         visited[destination] = true;
 
         while (!queue.isEmpty()) {
-            Node current = queue.poll();
-            for (Integer integer : arrays[current.area]) {
+            Integer current = queue.poll();
+            for (Integer integer : arrays[current]) {
                 if (!visited[integer]) {
                     visited[integer] = true;
-                    dist[integer] = current.value + 1;
-                    queue.add(new Node(integer, current.value + 1));
+                    dist[integer] = dist[current] + 1;
+                    queue.add(integer);
                 }
             }
         }
@@ -58,15 +58,4 @@ public class BackToBootcamp {
 
         return answer;
     }
-
-    public static class Node {
-        private int area;
-        private int value;
-
-        public Node(int area, int value) {
-            this.area = area;
-            this.value = value;
-        }
-    }
-
 }
