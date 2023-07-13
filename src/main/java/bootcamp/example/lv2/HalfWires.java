@@ -44,9 +44,8 @@ public class HalfWires {
             int v2 = wire[1];
             cut[v1] = true;
             cut[v2] = true;
-            int network1 = bfs(v1, list, cut);
-            int network2 = bfs(v2, list, cut);
-            answer = Math.min(answer, Math.abs(network1 - network2));
+            int network = bfs(v1, list, cut);
+            answer = Math.min(answer, Math.abs(network - (n - network)));
             cut[v1] = false;
             cut[v2] = false;
         }
