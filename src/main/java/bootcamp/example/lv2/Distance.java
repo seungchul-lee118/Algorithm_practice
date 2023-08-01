@@ -24,7 +24,7 @@ public class Distance {
             for (int j = 0; j < place.length; j++) {
                 for (int k = 0; k < place[0].length(); k++) {
                     if (place[j].charAt(k) != 'X') {
-                        blocked[i] |= countPerson(place, j, k);
+                        blocked[i] |= checkPerson(place, j, k);
                     }
                 }
             }
@@ -33,7 +33,7 @@ public class Distance {
         return answer;
     }
 
-    public static boolean countPerson(String[] place, int i, int j) {
+    public static boolean checkPerson(String[] place, int i, int j) {
         int count = 0;
         if (i - 1 >= 0) {
             count += place[i - 1].charAt(j) == 'P' ? 1 : 0;
