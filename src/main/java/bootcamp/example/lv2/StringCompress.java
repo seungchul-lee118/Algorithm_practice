@@ -48,19 +48,15 @@ public class StringCompress {
                 } else {
                     if (isSame) {
                         isSame = false;
-                        String countToString = Integer.toString(count);
-                        tempAnswer -= splitUnit * (count - 1) - countToString.length();
+                        tempAnswer -= splitUnit * (count - 1) - Math.log10(count) - 1;
                         count = 1;
                     }
                 }
                 recentUnit = nextUnit;
             }
-
             if (isSame) {
-                String countToString = Integer.toString(count);
-                tempAnswer -= splitUnit * (count - 1) - countToString.length();
+                tempAnswer -= splitUnit * (count - 1) - Math.log10(count) - 1;
             }
-
             answer = Math.min(answer, tempAnswer);
             splitUnit--;
         }
