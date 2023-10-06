@@ -37,16 +37,20 @@ public class TaxiTogether {
         for (int i = 0; i < n + 1; i++) {
             list[i] = new ArrayList<>();
         }
+
+        //택시 요금 배열 초기화, 다익스트라 알고리즘 우선순위 큐 초기화
         for (int i = 0; i < 3; i++) {
             Arrays.fill(distance[i], 100001);
             queues[i] = new PriorityQueue<>();
         }
 
+        //인접 리스트
         for (int[] fare : fares) {
             list[fare[0]].add(new Edge(fare[1], fare[2]));
             list[fare[1]].add(new Edge(fare[0], fare[2]));
         }
 
+        //다익스트라 초기점 요금 0으로 설정
         distance[0][s] = 0;
         distance[1][a] = 0;
         distance[2][b] = 0;
@@ -55,6 +59,7 @@ public class TaxiTogether {
         queues[1].add(new Edge(a, 0));
         queues[2].add(new Edge(b, 0));
 
+        //각 출발지마다 모든 지점에 대한 최소 금액 구하기
         for (int i = 0; i < 3; i++) {
             while (!queues[i].isEmpty()) {
                 Edge current = queues[i].poll();
