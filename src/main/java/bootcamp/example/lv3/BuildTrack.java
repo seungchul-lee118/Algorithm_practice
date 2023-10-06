@@ -42,19 +42,18 @@ public class BuildTrack {
         if (!inBoard(board.length, y, x) || board[y][x] == 1 || board[y][x] + 600 < pay) {
             return ;
         }
+
         board[y][x] = Math.min(board[y][x], pay);
         for (int i = 1; i <= 4; i++) {
             int nextY = y + direction.get(i)[0];
             int nextX = x + direction.get(i)[1];
-            if (y + x == 0) {
-                dfs(board, i, pay + 100, nextY, nextX, direction);
-            } else if (dir == i) {
+
+            if (dir == i || dir == 0) {
                 dfs(board, i, pay + 100, nextY, nextX, direction);
             } else {
                 dfs(board, i, pay + 600, nextY, nextX, direction);
             }
         }
-
     }
 
     public static boolean inBoard(int boardLength, int y, int x) {
