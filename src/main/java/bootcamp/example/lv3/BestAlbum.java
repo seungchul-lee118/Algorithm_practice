@@ -39,7 +39,7 @@ public class BestAlbum {
             maxGenrePlays.sort(Comparator.reverseOrder());
 
             int cnt = 0;
-            for (int i = 0; i < Math.min(maxGenrePlays.size(), 2); i++) {
+            for (int i = 0; i < maxGenrePlays.size(); i++) {
                 if (cnt == 2) break;
                 Integer maxPlayOfGenre = maxGenrePlays.get(i);
                 for (int j = 0; j < plays.length; j++) {
