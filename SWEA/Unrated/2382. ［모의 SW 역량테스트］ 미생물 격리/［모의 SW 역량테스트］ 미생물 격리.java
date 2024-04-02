@@ -52,7 +52,6 @@ public class Solution {
 					int maxIdx = 0;
 					int total = 0;
 					
-					if (list.size() == 1) continue;
 					for (Integer idx : list) {
 						int value = minerals[idx][2];
 						minerals[idx][2] = 0;
