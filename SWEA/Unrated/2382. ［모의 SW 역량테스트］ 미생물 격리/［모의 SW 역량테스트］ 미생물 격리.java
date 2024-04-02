@@ -5,8 +5,8 @@ import java.util.Map;
 import java.util.Scanner;
 
 public class Solution {
-	static int[] dr = {0, -1, 1, 0, 0};
-	static int[] dc = {0, 0, 0, -1, 1};
+	static int[] dr = {-1, 1, 0, 0};
+	static int[] dc = {0, 0, -1, 1};
 	static int N, M, K;
 	
 	public static void main(String[] args) {
@@ -21,7 +21,7 @@ public class Solution {
 			int[][] minerals = new int[K][4];
 			
 			for (int i = 0; i < K; i++) {
-				minerals[i] = new int[] {sc.nextInt(), sc.nextInt(), sc.nextInt(), sc.nextInt()};
+				minerals[i] = new int[] {sc.nextInt(), sc.nextInt(), sc.nextInt(), sc.nextInt()-1};
 			}
 			
 			for (int time = 1; time <= M; time++) {
@@ -37,7 +37,7 @@ public class Solution {
 					if (minerals[idx][0] == 0 || minerals[idx][0] == N-1
 							|| minerals[idx][1] == 0 || minerals[idx][1] == N-1) {
 						minerals[idx][2] /= 2;
-						minerals[idx][3] = switchDir(dir);
+						minerals[idx][3] ^= 1;
 					}
 					
 					if (minerals[idx][2] == 0) continue;
@@ -72,12 +72,5 @@ public class Solution {
 			}
 			System.out.println("#" + tc + " " + answer);
 		}
-	}
-	
-	static int switchDir(int dir) {
-		if (dir == 1) return 2;
-		if (dir == 2) return 1;
-		if (dir == 3) return 4;
-		return 3;
 	}
 }
